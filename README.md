@@ -84,13 +84,13 @@ If training is already complete, skip retraining.
 1. Keep one trained model file in the project root:
   - `pneumonia_predictor_model.keras`
   - `pneumonia_predictor_model.h5`
+  
 2. Set `TRAIN_FROM_SCRATCH = False` in the notebook.
 3. Run the evaluation and prediction cells directly.
 
 ## Current Status
 
 - `Predictor_model.ipynb` is stable and currently published.
-- `model.ipynb` is work in progress and will be updated later.
 
 ## Roadmap
 
