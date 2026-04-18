@@ -1,38 +1,46 @@
 # Pneumonia Predictor DL
 
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)
-![Notebook](https://img.shields.io/badge/Notebook-Jupyter-informational)
-![Status](https://img.shields.io/badge/Status-Active-success)
-
-Deep learning project to classify chest X-ray images into two classes:
+Pneumonia Predictor DL is a deep learning project for binary chest X-ray classification:
 - NORMAL
 - PNEUMONIA
 
-## Highlights
+The current public pipeline is implemented in `Predictor_model.ipynb`.
 
-- End-to-end image classification pipeline in a single notebook
-- Data preprocessing, augmentation, training, and evaluation
-- No-retraining mode supported for already trained model files
-- Ready-to-share GitHub structure with safe ignore rules
+## Project Snapshot
 
-## Project Structure
+- Problem type: Medical image binary classification
+- Framework: TensorFlow / Keras
+- Input: Chest X-ray images
+- Output: Probability of pneumonia
+- Current status: Stable notebook pushed, transfer-learning notebook in progress
 
-- `Predictor_model.ipynb`: main notebook for this public version
-- `Dataset/`: local dataset folder (ignored in git)
-  - `train/NORMAL`, `train/PNEUMONIA`
-  - `val/NORMAL`, `val/PNEUMONIA`
-  - `test/NORMAL`, `test/PNEUMONIA`
-- `requirements.txt`: required Python packages
-- `.gitignore`: excludes dataset, secrets, envs, and model artifacts
-- `kaggle.json.example`: safe sample file
+## Features
+
+- Image preprocessing
+- Data augmentation
+- CNN-based binary classification
+- Model evaluation with confusion matrix and classification report
+- No-retraining mode for loading an already trained model
+
+## Folder Structure
+
+- `Predictor_model.ipynb` - main notebook used in this repository
+- `Dataset/` - local dataset folder (ignored in git)
+  - train/NORMAL
+  - train/PNEUMONIA
+  - val/NORMAL
+  - val/PNEUMONIA
+  - test/NORMAL
+  - test/PNEUMONIA
+- `requirements.txt`
+- `.gitignore`
 
 ## Dataset
 
 Kaggle source:
 - `paultimothymooney/chest-xray-pneumonia`
 
-Expected local structure:
+Expected structure:
 
 ```text
 Dataset/
@@ -47,7 +55,7 @@ Dataset/
     PNEUMONIA/
 ```
 
-## Quick Start
+## Setup
 
 ```bash
 python -m venv .venv
@@ -55,49 +63,37 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Open `Predictor_model.ipynb` and run cells top-to-bottom.
+## Run
 
-## Kaggle Setup (Safe)
+1. Open `Predictor_model.ipynb`.
+2. Run all cells top-to-bottom.
+3. Verify dataset path before training/evaluation cells.
 
-1. Generate API token from Kaggle account settings.
-2. Save `kaggle.json` locally.
-3. Place it at `%USERPROFILE%\.kaggle\kaggle.json` (recommended).
-4. Never commit `kaggle.json`.
+## Kaggle Token Setup
+
+1. Generate an API token from your Kaggle account.
+2. Save `kaggle.json` on your local machine.
+3. Place it at this path (recommended):
+  - `%USERPROFILE%\.kaggle\kaggle.json`
+4. Never commit `kaggle.json` to git.
 
 ## Run Without Retraining
 
-If your training is already complete, skip retraining.
+If training is already complete, skip retraining.
 
-1. Keep one trained model file in project root:
-   - `pneumonia_predictor_model.keras` (preferred)
-   - `pneumonia_predictor_model.h5`
-2. In notebook, keep `TRAIN_FROM_SCRATCH = False`.
-3. Run evaluation and prediction cells only.
+1. Keep one trained model file in the project root:
+  - `pneumonia_predictor_model.keras`
+  - `pneumonia_predictor_model.h5`
+2. Set `TRAIN_FROM_SCRATCH = False` in the notebook.
+3. Run the evaluation and prediction cells directly.
 
-Model files are ignored by git to keep the repository lightweight.
+## Current Status
 
-## Results
+- `Predictor_model.ipynb` is stable and currently published.
+- `model.ipynb` is work in progress and will be updated later.
 
-The notebook includes:
-- Test-set evaluation
-- Confusion matrix
-- Classification report
-- Accuracy and loss curves (available when training runs in-notebook)
+## Roadmap
 
-You can add your best metrics here after final run:
-- Test Accuracy: `TODO`
-- Precision: `TODO`
-- Recall: `TODO`
-- F1 Score: `TODO`
-
-## Current Scope
-
-- Public version currently focuses on `Predictor_model.ipynb`
-- `model.ipynb` is still experimental and intentionally excluded for now
-
-## Future Improvements
-
-- Finalize transfer-learning notebook
-- Add model checkpointing and best-model tracking
-- Add single-image inference notebook/script
-- Add Grad-CAM style explainability visualization
+- Complete the pretrained/transfer learning version
+- Add better metrics tracking
+- Add a single-image prediction script
