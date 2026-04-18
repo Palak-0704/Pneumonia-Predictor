@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+model.ipynb
+
+# Dataset and large artifacts
+Dataset/
+*.zip
+*.h5
+*.keras
+*.ckpt
+
+# Secrets
+kaggle.json
+*.env
+
+# OS/editor
+.DS_Store
+Thumbs.db
